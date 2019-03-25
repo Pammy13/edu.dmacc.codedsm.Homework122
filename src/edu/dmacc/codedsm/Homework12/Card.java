@@ -1,56 +1,62 @@
 package edu.dmacc.codedsm.Homework12;
 
-import com.sun.org.apache.xpath.internal.operations.Bool;
-
-import java.io.FileWriter;
-import java.io.IOException;
-import java.io.PrintWriter;
-
-import java.util.*;
-
-import static sun.security.krb5.internal.crypto.Nonce.value;
-
 public class Card {
 
-    public int value;
     public String suit;
+    public Integer value;
 
-    public static class DeckRandomizer {
 
-        private static final Random random = new Random();
+    public Card(String suit, Integer value) {
+        this.suit = suit;
+        this.value = value;
+    }
 
-        public static List<Card> chooseRandomCards(Map<String, List<Integer>> deck, int numberOfCards) {
-            List<Card> chosenCards = new ArrayList<>();
-            Set<String> suits = deck.keySet();
+    @Override
+    public String toString() {
+        return "Card{" +
+                "suit='" + suit + '\'' +
+                ", value=" + value +
+                '}';
+    }
+//    public int card.value();
+//    {
+//        switch(card.value) {
+//            card.value; "13":
+//            card.value; "12":
+//            card.value "11":
+//                return 10;
+//            default:
+//                return Integer.parseInt(card.value);
+//        }
+//    }
+//    /** The value of a Jack of any suit. */
+//    public static void value "11" = new cardValue("10");
+//
+//    /** The value of a Queen of any suit. */
+//    public static void value "12 = new cardValue(12);
+//
+//    /** The value of a King of any suit. */
+//    public static void value "13" = new CardValue(13);
 
-            for (int i = 0; i < numberOfCards; i++) {
-                Card chosenSuitAndCard = getCard(deck, suits);
-                while (chosenCards.contains(chosenSuitAndCard)) {
-                    chosenSuitAndCard = getCard(deck, suits);
-                }
-                chosenCards.add(chosenSuitAndCard);
-            }
 
-            return chosenCards;
-        }
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
 
-        private static String getChosenSuit(Set<String> suits) {
-            int suitCount = suits.size();
-            return suits.toArray(new String[suitCount])[random.nextInt(suitCount)];
-        }
+        Card card = (Card) o;
 
-        private static Card getCard(Map<String, List<Integer>> deck, Set<String> suits) {
-            return getCard(deck, getChosenSuit(suits), checkIfDeckIsExhausted(deck), random, suits);
-        }
-
-        private static boolean checkIfDeckIsExhausted(Map<String, List<Integer>> deck) {
-            Collection<List<Integer>> values = deck.values();
-            int numOfCards = 0;
-            for (List<Integer> value : values) {
-                numOfCards = numOfCards + value.size();
-            }
-            return numOfCards == 0;
-        }
+        if (suit != null ? !suit.equals(card.suit) : card.suit != null) return false;
+        return value != null ? value.equals(card.value) : card.value == null;
 
     }
+
+    @Override
+    public int hashCode() {
+        int result = suit != null ? suit.hashCode() : 0;
+        result = 31 * result + (value != null ? value.hashCode() : 0);
+        return result;
+    }
+
 }
+

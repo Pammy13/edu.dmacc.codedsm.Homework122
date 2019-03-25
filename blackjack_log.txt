@@ -1,0 +1,5 @@
+Dealer Wins
+Dealer's Hand was 5 points.
+Player's Hand was 23 points
+Player cards: Clubs - 3,  Clubs - 2,  Diamonds - 9,  Spades - 9, 
+Dealer cards: Clubs - 4,  Diamonds - 1, 

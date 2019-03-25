@@ -7,9 +7,7 @@ import java.io.IOException;
 import java.io.PrintWriter;
 
 
-public  class Blackjack {
-
-    public static class BlackJack<sumOfDealerHand> {
+public class BlackJack {
 
          public static void main(String[] args) {
             Map<String, List<Integer>> deck = initializeDeck();
@@ -199,4 +197,4 @@ public  class Blackjack {
 
         }
     }
-}
+
